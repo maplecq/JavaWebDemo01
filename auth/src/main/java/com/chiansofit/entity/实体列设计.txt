@@ -1,0 +1,26 @@
+ 资源      ------>      权限      一对多  
+    权限      <----->       角色      多对多  
+    角色      <----->       用户      多对多  
+      
+    资源：  
+        String id   编号  
+        String uri  资源uri  
+        String description  描述  
+        Permission permission   该资源需要的权限  
+          
+    权限：  
+        String id   编号  
+        String name 权限名  
+        String description 权限描述  
+          
+    角色：  
+        String id   编号  
+        String name 角色名  
+        String description 角色描述  
+        Set<Permission> set 该角色具有的权限  
+          
+    用户：  
+        String id   编号  
+        String username 用户名  
+        String password 密码  
+        Set<Role> set 该用户都具有的角色  

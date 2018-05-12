@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<decorators defaultdir="/decorators"> <!--装饰文件存放的目录 -->
+	<decorator name="main" page="templete.jsp">   <!--装饰文件为main.jsp -->
+		<pattern>/WEB-INF/manager/*</pattern>  <!--要被装饰的页面，如是“ /* ”指对WebContent\目录下的所有JSP页面进行装饰 -->
+		<pattern>/index.jsp</pattern>
+	</decorator>
+	<decorator name="panel" page="panel.jsp" />
+	<decorator name="printable" page="printable.jsp" />
+	<excludes>    <!--过滤不被装饰的页面 -->
+		<pattern>*/exclude/*</pattern>
+	</excludes>
+</decorators>

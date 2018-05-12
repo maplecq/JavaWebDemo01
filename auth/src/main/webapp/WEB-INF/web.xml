@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	id="WebApp_ID" version="2.5">
+
+	<!--配置SiteMesh 过滤器 -->
+	<filter>
+		<filter-name>sitemesh</filter-name>
+		<filter-class>com.opensymphony.sitemesh.webapp.SiteMeshFilter</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>sitemesh</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<!-- 过滤器 -->
+	<filter>
+		<filter-name>encoding-filter</filter-name>
+		<filter-class>com.chiansofit.filter.CharacterFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>encoding-filter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<welcome-file-list>
+		<welcome-file>login/login.jsp</welcome-file>
+	</welcome-file-list>
+
+	<servlet>
+		<servlet-name>WelcomeServlet</servlet-name>
+		<servlet-class>com.chiansofit.servlet.Welcome</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>WelcomeServlet</servlet-name>
+		<url-pattern>/Welcome</url-pattern>
+	</servlet-mapping>
+	<!-- 资源管理 -->
+	<servlet>
+		<servlet-name>ResourceServlet</servlet-name>
+		<servlet-class>com.chiansofit.servlet.manager.ResourceServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ResourceServlet</servlet-name>
+		<url-pattern>/servlet/manager/ResourceServlet</url-pattern>
+	</servlet-mapping>
+	<!-- 权限管理 -->
+	<servlet>
+		<servlet-name>PermissionServlet</servlet-name>
+		<servlet-class>com.chiansofit.servlet.manager.PermissionServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>PermissionServlet</servlet-name>
+		<url-pattern>/servlet/manager/PermissionServlet</url-pattern>
+	</servlet-mapping>
+	<!-- 角色管理 -->
+	<servlet>
+		<servlet-name>RoleServlet</servlet-name>
+		<servlet-class>com.chiansofit.servlet.manager.RoleServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>RoleServlet</servlet-name>
+		<url-pattern>/servlet/manager/RoleServlet</url-pattern>
+	</servlet-mapping>
+	<!-- 用户管理 -->
+	<servlet>
+		<servlet-name>UserServlet</servlet-name>
+		<servlet-class>com.chiansofit.servlet.manager.UserServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UserServlet</servlet-name>
+		<url-pattern>/servlet/manager/UserServlet</url-pattern>
+	</servlet-mapping>
+
+</web-app>
